@@ -2,3 +2,6 @@
 React는 React 전용 Bootstrap
 
 npm install => yarn add
+
+
+** export default : 다른 파일에서 가져다 쓸 수 있음.(파일을 쪼개서 다른 곳에서 활용하겠다.)

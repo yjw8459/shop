@@ -1,11 +1,13 @@
-import React from 'react';
+
+import React, { useState } from 'react';
 import './App.css';
-import 'bootstrap/dist/css/bootstrap.min.css';
-import { Navbar, Container, Nav, NavDropdown } from 'react-bootstrap';
-import { height } from 'dom-helpers';
-import Button from '@restart/ui/esm/Button';
+import { Navbar, Container, Nav, NavDropdown, Button } from 'react-bootstrap';
+import data from './data';
 
 function App() {
+  let [shoes, shoes변경] = useState(data);
+
+
   return (
     <div className="App">
       <Navbar bg="light" expand="lg">
@@ -40,8 +42,31 @@ function App() {
         </p>
       </div>
 
+
+
+      <div className="container">
+        <div className="row">
+          {
+            shoes.map(shoe => <Items shoe={shoe} /> )
+          }
+        </div>
+      </div>
+
     </div>
+
+
   );
+}
+
+function Items(props){
+    return (     
+        <div className="col-md-4">
+          <img src="https://codingapple1.github.io/shop/shoes1.jpg" width="100%" alt="test"></img>
+          <h4>{props.shoe.title}</h4>
+          <p>{props.shoe.content}</p>
+        </div>
+       )
+    
 }
 
 export default App;
