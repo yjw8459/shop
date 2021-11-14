@@ -1,4 +1,4 @@
-
+/* eslint-disable */
 import React, { useState } from 'react';
 import './App.css';
 import { Navbar, Container, Nav, NavDropdown, Button } from 'react-bootstrap';
@@ -47,7 +47,9 @@ function App() {
       <div className="container">
         <div className="row">
           {
-            shoes.map(shoe => <Items shoe={shoe} /> )
+            shoes.map((shoe, i) => {
+              return <Items shoe={shoe} i={i} /> 
+            }) 
           }
         </div>
       </div>
@@ -61,9 +63,10 @@ function App() {
 function Items(props){
     return (     
         <div className="col-md-4">
-          <img src="https://codingapple1.github.io/shop/shoes1.jpg" width="100%" alt="test"></img>
+          {props.key}
+          <img src={"https://codingapple1.github.io/shop/shoes" + (props.i + 1) + ".jpg"} width="100%" alt="test"></img>
           <h4>{props.shoe.title}</h4>
-          <p>{props.shoe.content}</p>
+          <p>{props.shoe.content} & {props.shoe.price}</p>
         </div>
        )
     
