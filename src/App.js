@@ -32,7 +32,7 @@ function App() {
         </Container>
       </Navbar>
 
-
+{ /* URL 변경 시 페이지 이동을 할 수 있게 해주는 Route  */ }
       <Route exact path="/">
         <div style={{height:'300px', backgroundColor:'grey'}} className="background">
           <h1>20% Season Off</h1>
