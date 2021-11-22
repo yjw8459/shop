@@ -4,6 +4,7 @@ import './App.css';
 import { Navbar, Container, Nav, NavDropdown, Button } from 'react-bootstrap';
 import data from './data';
 import { Link, Route, Switch } from 'react-router-dom';
+import Detail from './Detail';
 
 
 function App() {
@@ -33,6 +34,7 @@ function App() {
       </Navbar>
 
 { /* URL 변경 시 페이지 이동을 할 수 있게 해주는 Route  */ }
+<Switch>
       <Route exact path="/">
         <div style={{height:'300px', backgroundColor:'grey'}} className="background">
           <h1>20% Season Off</h1>
@@ -56,21 +58,9 @@ function App() {
       </div>
       </Route>
       <Route path="/detail">
-        <div className="container">
-          <div className="row">
-            <div className="col-md-6">
-              <img src="https://codingapple1.github.io/shop/shoes1.jpg" width="100%" />
-            </div>
-            <div className="col-md-6 mt-4">
-              <h4 className="pt-5">상품명</h4>
-              <p>상품설명</p>
-              <p>120000원</p>
-              <button className="btn btn-danger">주문하기</button> 
-            </div>
-          </div>
-        </div> 
+          <Detail shoes={shoes[0]}/>
       </Route>
-
+</Switch>
 
 
 

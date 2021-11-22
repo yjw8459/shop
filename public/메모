@@ -18,3 +18,5 @@ BrowserRouter : 서버에 요청할 수도 있으므로 위험.
 페이지 이동을 위한 Route를 사용할 때는, 
 먼저 index.js에서 HashRouter 혹은 BrowserRouter를 import 해준 후 
 <App />를 라우터 컴포넌트로 감싸준다.
+
+컴포넌트가 담긴 js파일은 함수의 첫 글자를 대문자로 쓴다. 
