@@ -10,7 +10,6 @@ import Detail from './Detail';
 function App() {
   let [shoes, shoes변경] = useState(data);
 
-
   return (
     <div className="App">
       <Navbar bg="light" expand="lg">
@@ -57,8 +56,8 @@ function App() {
         </div>
       </div>
       </Route>
-      <Route path="/detail">
-          <Detail shoes={shoes[0]}/>
+      <Route path="/detail/:id">
+          <Detail shoes={shoes}/>
       </Route>
 </Switch>
 
