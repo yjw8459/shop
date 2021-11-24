@@ -9,8 +9,10 @@ import Detail from './Detail';
 
 function App() {
   let [shoes, shoes변경] = useState(data);
-  
+  let [재고, 재고변경] = useState([10,11,12]);
+  let 재고context = React.createContext();
 
+  
   return (
     <div className="App">
       <Navbar bg="light" expand="lg">
@@ -48,17 +50,21 @@ function App() {
           </p>
         </div>
         <div className="container">
-        <div className="row">
-          {
-            shoes.map((shoe, i) => {
-              return <Items shoe={shoe} i={i} /> 
-            }) 
-          }
-        </div>
+          <재고context.Provider>
+          <div className="row">
+            {
+              shoes.map((shoe, i) => {
+                return <Items shoe={shoe} i={i} /> 
+              }) 
+            }
+          </div>
+          </재고context.Provider>
       </div>
       </Route>
       <Route path="/detail/:id">
-          <Detail/>
+          <재고context.Provider>
+          <Detail 재고={재고} />
+          </재고context.Provider>
       </Route>
 </Switch>
 
