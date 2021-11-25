@@ -1,5 +1,5 @@
 /* eslint-disable */
-import React, { useState } from 'react';
+import React, { useContext, useState } from 'react';
 import './App.css';
 import { Navbar, Container, Nav, NavDropdown, Button } from 'react-bootstrap';
 import data from './data';
@@ -7,11 +7,12 @@ import { Link, Route, Switch } from 'react-router-dom';
 import Detail from './Detail';
 import Cart from './Cart.js';
 
+let 재고context = React.createContext();  //같은 값을 공유할 범위 생성
+export let 재고context2 = React.createContext();  //다른 컴포넌트로 
 
 function App() {
   let [shoes, shoes변경] = useState(data);
   let [재고, 재고변경] = useState([10,11,12]);
-  let 재고context = React.createContext();
 
   
   return (
@@ -51,7 +52,7 @@ function App() {
           </p>
         </div>
         <div className="container">
-          <재고context.Provider>
+          <재고context.Provider value={재고}>
           <div className="row">
             {
               shoes.map((shoe, i) => {
@@ -63,9 +64,7 @@ function App() {
       </div>
       </Route>
       <Route path="/detail/:id">
-          <재고context.Provider>
           <Detail 재고={재고} />
-          </재고context.Provider>
       </Route>
 </Switch>
 
@@ -80,15 +79,26 @@ function App() {
 }
 
 function Items(props){
+
+  let 재고 = useContext(재고context);
+
     return (     
         <div className="col-md-4">
           {props.key}
           <img src={"https://codingapple1.github.io/shop/shoes" + (props.i + 1) + ".jpg"} width="100%" alt="test"></img>
           <h4>{props.shoe.title}</h4>
           <p>{props.shoe.content} & {props.shoe.price}</p>
+          <Test></Test>
         </div>
        )
     
 }
+
+function Test(){
+  let 재고 = useContext(재고context);
+  return ( <p>{재고}</p> )
+}
+
+
 
 export default App;

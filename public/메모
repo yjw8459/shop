@@ -54,3 +54,4 @@ yarn add redux react-redux : 라이브러리 두 개 설치 가능
     SASS
     ReactContext
     Redux
+    react-transition-group // 애니메이션 라이브러리
