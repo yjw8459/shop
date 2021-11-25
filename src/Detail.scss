@@ -1,0 +1,53 @@
+//@import './reset.scss';
+
+$메인칼라 : #ff0000; // 변수
+
+
+.red{
+    color : $메인칼라;
+}
+
+
+
+.my-alert2 {
+    @extend .my-alert;
+    background: #ffe591;
+}
+
+@mixin 함수() { //CSS를 함수로 
+    background: #eeeeee;
+    padding: 20px;
+    border-radius: 5px;
+    max-width: 500px;
+    width: 100%;
+    margin: auto;   
+}
+
+.my-alert{
+    @include 함수();    //함수 호출할 땐 include
+}
+
+
+.my-alert p {
+    margin-bottom: 0;
+}
+// div.container h4{
+//     color : blue;
+// }
+
+// div.container p{
+//     color : green;
+// }
+
+// div.container { //네스팅 문법
+//     h4 {
+//         color : blue;
+//     }
+
+//     p {
+//         color : green;
+//     }
+// }
+
+
+
