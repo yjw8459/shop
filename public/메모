@@ -25,6 +25,32 @@ BrowserRouter : 서버에 요청할 수도 있으므로 위험.
 
 
 
+
+-- Redux 
+대형 프로젝트 혹은 규모있는 프로젝트에서 State를 관리하기 쉽게
+사용하는 라이브러리 
+
+reducer로 상태에 따라 state를 변경하고 
+dispath를 통해서 상태 변경에 따른 값을 받아서 쓴다.
+
+
+Redux를 위한 세팅
+    index.js의 <App />을 <Provider></Provider>로 감싸서 사용한다.
+    사용할 컴포넌트에 export default connect(connect함수)(컴포넌트)
+    function connectFunction(state){
+        return {
+            state : state
+        }
+    }
+
+yarn add redux react-redux : 라이브러리 두 개 설치 가능 
+
+
+
+
+
+
 --사용 라이브러리
     SASS
     ReactContext
+    Redux

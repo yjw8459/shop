@@ -5,6 +5,7 @@ import { Navbar, Container, Nav, NavDropdown, Button } from 'react-bootstrap';
 import data from './data';
 import { Link, Route, Switch } from 'react-router-dom';
 import Detail from './Detail';
+import Cart from './Cart.js';
 
 
 function App() {
@@ -68,7 +69,9 @@ function App() {
       </Route>
 </Switch>
 
-
+      <Route path="/cart">
+        <Cart></Cart>
+      </Route>
 
     </div>
 
