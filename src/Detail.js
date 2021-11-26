@@ -47,7 +47,9 @@ return (
         <h4 className="pt-5">{찾은상품.title}</h4>
         <p>{찾은상품.content}</p>
         <p>{찾은상품.price}원</p>
-        <button className="btn btn-danger">주문하기</button> 
+        <button className="btn btn-danger" onClick={
+          props.dispatch( {type : '항목추가', data : { id : 찾은상품.id, name: 찾은상품.title, quan : 1 }} )
+        } >주문하기</button> 
         <p>{props.재고}</p>
       </div>
     </div>
