@@ -3,6 +3,9 @@ import {Table} from 'react-bootstrap';
 import {connect} from 'react-redux';
 
 function Cart(props){
+    let state = useSelector((state) => state.reducer);  //((state) => state) : return state;와 같음
+    let dispatch = useDispatch();
+    console.log(state);
 
     return(
         <div>
@@ -14,15 +17,15 @@ function Cart(props){
                     <th>변경</th>
                 </tr>
                 {
-                props.state.map((item, i) => {
+                state.map((item, i) => {
                     return (
                         <tr>
                             <td>{item.id}</td>
                             <td>{item.name}</td>
                             <td>{item.quan}</td>
                             <td>
-                                <button onClick={ props.dispach({type : "증가"}) }>+</button>
-                                <button onClick={ props.dispach({type : "감소"}) }>-</button>
+                                <button onClick={ dispach({type : "증가", idx : item.id}) }>+</button>
+                                <button onClick={ dispach({type : "감소", idx : item.id}) }>-</button>
                             </td>
                         </tr>
                     );
@@ -34,10 +37,13 @@ function Cart(props){
 }
 
 
-function connectState(state){
-    return {
-        state : state
-    }
-}
 
-export default connect(connectState)(Cart)
+export default Cart;
+
+// function connectState(state){
+//     return {
+//         state : state
+//     }
+// }
+
+// export default connect(connectState)(Cart)

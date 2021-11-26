@@ -14,12 +14,22 @@ let 초기값 = [ {id : 0, name : 신발1, quan : 2}, {id : 1, name : 신발2, q
 
 function reducer(state=초기값, action){
   let arr = [...state];
-  if( action.type === '증가' ){
-    arr[0].quan++;
+
+  if( action.type === '항목추가' ){
+    let found = arr.findIndex( (a) => { a.id === action.data.id } );
+    if ( found >= 0 ){
+      arr[found].quan++;
+      return arr;
+    } 
+    copy.push(action.data);
+    return arr;
+  } 
+  else if( action.type === '증가' ){
+    arr[action.id].quan++;
     return arr;
   }
   else if( action.type === '감소' ){
-    arr[0].quan--;
+    arr[action.id].quan--;
     return arr;
   }  
   else  return state;

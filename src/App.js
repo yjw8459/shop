@@ -13,7 +13,7 @@ export let 재고context2 = React.createContext();  //다른 컴포넌트로
 function App() {
   let [shoes, shoes변경] = useState(data);
   let [재고, 재고변경] = useState([10,11,12]);
-
+  let history = useHistory();
   
   return (
     <div className="App">
@@ -56,7 +56,7 @@ function App() {
           <div className="row">
             {
               shoes.map((shoe, i) => {
-                return <Items shoe={shoe} i={i} /> 
+                return <Items shoe={shoe} i={i} /> // onClick 이벤트 넣을 시 컴포넌트X HTML 태그 O 
               }) 
             }
           </div>
@@ -83,7 +83,7 @@ function Items(props){
   let 재고 = useContext(재고context);
 
     return (     
-        <div className="col-md-4">
+        <div className="col-md-4" onClick={ () => { history.push('/detail/' + props.shoe.id) } }>
           {props.key}
           <img src={"https://codingapple1.github.io/shop/shoes" + (props.i + 1) + ".jpg"} width="100%" alt="test"></img>
           <h4>{props.shoe.title}</h4>
