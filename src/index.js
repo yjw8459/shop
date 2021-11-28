@@ -20,7 +20,7 @@ function reducer(state=초기값, action){
   let arr = [...state];
 
   if( action.type === '항목추가' ){
-    let found = arr.findIndex( (a) => { a.id === action.data.id } );
+    let found = arr.findIndex( (a) =>  a.id === action.data.id  );
     if ( found >= 0 ){
       arr[found].quan++;
       return arr;

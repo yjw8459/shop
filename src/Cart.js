@@ -1,8 +1,9 @@
 import React from 'react';
 import {Table} from 'react-bootstrap';
-import {connect, useDispatch, useSelector} from 'react-redux';
+import {useDispatch, useSelector} from 'react-redux';
 
 function Cart(props){
+    //useSelector(state) 함수 안의 state는 redux안의 모든 state
     let state = useSelector((state) => state.reducer);  //((state) => state) : return state;와 같음
     let dispatch = useDispatch();
 
