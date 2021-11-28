@@ -1,5 +1,5 @@
-import React, { useContext, useEffect } from 'react';
-import {useState, useHistory, useParams } from 'react-router-dom';
+import React, {useState, useContext, useEffect } from 'react';
+import {useHistory, useParams } from 'react-router-dom';
 import styled from 'styled-components';
 import './Detail.scss';
 import { 재고context2 } from './App.js';  //App.js의 Context를 가져올 때 export import로 사용한다 
