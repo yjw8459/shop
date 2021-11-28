@@ -1,6 +1,6 @@
 import React from 'react';
 import {Table} from 'react-bootstrap';
-import {connect} from 'react-redux';
+import {connect, useDispatch, useSelector} from 'react-redux';
 
 function Cart(props){
     let state = useSelector((state) => state.reducer);  //((state) => state) : return state;와 같음
@@ -24,8 +24,8 @@ function Cart(props){
                             <td>{item.name}</td>
                             <td>{item.quan}</td>
                             <td>
-                                <button onClick={ dispach({type : "증가", idx : item.id}) }>+</button>
-                                <button onClick={ dispach({type : "감소", idx : item.id}) }>-</button>
+                                <button onClick={ dispatch({type : "증가", idx : item.id}) }>+</button>
+                                <button onClick={ dispatch({type : "감소", idx : item.id}) }>-</button>
                             </td>
                         </tr>
                     );
