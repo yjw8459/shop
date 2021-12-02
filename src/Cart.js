@@ -1,11 +1,11 @@
 import React from 'react';
 import {Table} from 'react-bootstrap';
-import {connect} from 'react-redux';
+import {useDispatch, useSelector} from 'react-redux';
 
 function Cart(props){
+    //useSelector(state) 함수 안의 state는 redux안의 모든 state
     let state = useSelector((state) => state.reducer);  //((state) => state) : return state;와 같음
     let dispatch = useDispatch();
-    console.log(state);
 
     return(
         <div>
@@ -24,14 +24,18 @@ function Cart(props){
                             <td>{item.name}</td>
                             <td>{item.quan}</td>
                             <td>
-                                <button onClick={ dispach({type : "증가", idx : item.id}) }>+</button>
-                                <button onClick={ dispach({type : "감소", idx : item.id}) }>-</button>
+                                <button onClick={ dispatch({type : "증가", idx : item.id}) }>+</button>
+                                <button onClick={ dispatch({type : "감소", idx : item.id}) }>-</button>
                             </td>
                         </tr>
                     );
                 })
                 }
             </Table>
+            <div className="my-alert2">
+                <p>지금 구매하시면 신규할인 20%</p>
+                <button onClick={ props.dispatch({type : 'close'}) }>닫기</button>
+            </div>
       </div>
     );
 }

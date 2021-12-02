@@ -1,0 +1,38 @@
+.wow-enter { 
+    opacity: 0;
+}
+
+.wow-enter-active { 
+    opacity: 1;
+    transition: all 500ms;  
+}
+
+.red{
+    color : #ff0000;
+}
+
+.my-alert2 {
+    background: #ffe591;
+    padding: 20px;
+    border-radius: 5px;
+    max-width: 500px;
+    width: 100%;
+    margin: auto; 
+
+}
+.my-alert{
+    background: #eeeeee;
+    padding: 20px;
+    border-radius: 5px;
+    max-width: 500px;
+    width: 100%;
+    margin: auto; 
+}
+
+
+.my-alert p {
+    margin-bottom: 0;
+}
+
+
+

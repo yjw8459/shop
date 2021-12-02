@@ -3,7 +3,7 @@ import React, { Suspense, useContext, useState } from 'react';
 import './App.css';
 import { Navbar, Container, Nav, NavDropdown, Button } from 'react-bootstrap';
 import data from './data';
-import { Link, Route, Switch } from 'react-router-dom';
+import { useHistory, Link, Route, Switch } from 'react-router-dom';
 import Detail from './Detail';
 import Cart from './Cart.js';
 
