@@ -31,6 +31,27 @@ function Detail(props){
 
   let [누른탭, 누른탭변경] = useState(0);
   let [스위치, 스위치변경] = useState(false);
+
+
+  /**
+   * localStorage.setItem : Key, Value로 데이터 저장
+   * localStorage.getItem : Key로 value가져옴
+   * localStorage.removeItem : key로 데이터 삭제
+   * 
+   * 브라우저 정보를 지우지 않는 한 남아있는 데이터.
+   * 최근 본 상품 같은 것들을 저장하는 방법이다.
+   * 
+   * 무조건 문자열로 저장해야 하기 때문에 
+   * JSON.stringify(), JSON.parse()를 사용해야한다.
+   * 
+   * new Set()을 사용한 이유는 자료형 Set은 중복을 허용하지 않기 때문에
+   * id값을 저장할 때 같은 id가 있는 경우 저장되지 않도록 하기 위함이다.
+   */
+  let storageArr = localStorage.getItem() === null ? 
+                      [] : JSON.parse(localStorage.getItem());
+  storageArr.push(id);
+  localStorage.setItem('id', JSON.stringify(new Set(storageArr)));
+
 return (
     <div className="container">
       <박스>

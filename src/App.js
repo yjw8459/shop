@@ -1,5 +1,5 @@
 /* eslint-disable */
-import React, { useContext, useState } from 'react';
+import React, { Suspense, useContext, useState } from 'react';
 import './App.css';
 import { Navbar, Container, Nav, NavDropdown, Button } from 'react-bootstrap';
 import data from './data';
@@ -64,7 +64,10 @@ function App() {
       </div>
       </Route>
       <Route path="/detail/:id">
-          <Detail 재고={재고} />
+        {/*   /LAZY Loading을 위해 Subpense 태그로 감싼다. fallback은 로딩 전까지 띄울 html   */}
+          <Suspense fallback={ <div>로딩중입니다.</div>}>
+            <Detail 재고={재고} />
+          </Suspense>
       </Route>
 </Switch>
 
